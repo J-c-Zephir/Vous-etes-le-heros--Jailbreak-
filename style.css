@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  src: url("https://fonts.google.com/specimen/VT323") format("truetype");
+  font-family: "Amongus";
+}
+
+body {
+  background-color: #1b1b1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/*titre*/
+h1 {
+  font-family: "VT323", monospace;
+  font-size: 40px;
+}
+
+p{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/*Carré Jailbreak*/
+.game {
+  font-family: "VT323", monospace;
+  color: #fbfffe;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 800px;
+  height: 600px;
+  background-color: #303036;
+  border: solid 2px #fbfffe;
+  border-radius: 10px;
+}
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+button{
+  width: 100px;
+  background-color: #ed701d;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  justify-content: space-evenly;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "VT323", monospace;
+}
+
+button:hover {
+  background-color: #96031a;
+}
+
+/*INPUT TYPE button*/
+
+/* input[type="button"] {
+  width: 100%;
+  background-color: #ed701d;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "VT323", monospace;
+}
+
+input[type="button"]:hover {
+  background-color: #96031a;
+} */
