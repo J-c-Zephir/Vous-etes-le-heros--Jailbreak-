@@ -11,4 +11,4 @@ Action, science-fiction, absurde
 [Palette de couleur](https://coolors.co/303036-ed701d-fbfffe-1b1b1e-96031a)
 
 ## Diagramme
-![Diagramme](../Vous-etes-le-heros--Jailbreak-/assets/plan-aventure-interactive.jpg)
+![Diagramme](/assets/plan-aventure-interactive.jpg)
