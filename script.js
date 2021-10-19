@@ -1,7 +1,5 @@
 //*FONCER DANS LE GARDE DE SÉCURITER POUR T'ENFUIR [YOU DIE]
 
-// Étant distrait par les licornes de couleure verte, le garde oublie la clée de la porte de se cellule
-
     //CHAPITRE 1
 
 let chaptersObj = {
@@ -11,10 +9,10 @@ let chaptersObj = {
         img: "/assets/prison.jpg",
         options: [{
             text:"Aller vous coucher ",
-            action:'goToChapter(confontation)'
+            action:"goToChapter('confontation')"
         }, {
             text:"le temps passe",
-            action:"goToChapter(confontation)"
+            action:"goToChapter('confontation')"
         }]
       },
 
@@ -26,10 +24,10 @@ let chaptersObj = {
         img: "/assets/confrontation.jpg",
         options: [{
             text:"Provoquer garde", 
-            action:'goToChapter(mort)'},
+            action:'goToChapter("mort")'},
             {
                 text: "Ne rien faire",
-                action:"goToChapter(choix_difficile)"
+                action:"goToChapter('choix_difficile')"
             }],
     },
     le_garde: {
@@ -38,7 +36,7 @@ let chaptersObj = {
         img: "/assets/boxed_up.jpg",
         options: [{
             text:"Rejouer ",
-            action:"goToChapter(la_prison)"
+            action:"goToChapter('la_prison')"
         },]
       },
 
@@ -50,14 +48,14 @@ let chaptersObj = {
         img:"/assets/pourison.jpg ",
         options: [{
             text:"Manger_Biscuit",
-            action:"goToChapter(biscuit)"
+            action:"goToChapter('biscuit')"
         },{
             text:"Utiliser la machine",
-            action:"goToChapter(mort) "
+            action:"goToChapter('mort')"
         },
         {
             text:"Prendre le laser",
-            action:"goToChapter(laser)"
+            action:"goToChapter('laser')"
         }],
     },
     teleporter: {
@@ -66,7 +64,7 @@ let chaptersObj = {
         img: "/assets/teleporter.jpg",
         options: [{
             text:"réesayer",
-            action:"goToChapter(la_prison) "
+            action:"goToChapter('la_prison') "
         },]
       },
     biscuit: {
@@ -75,10 +73,10 @@ let chaptersObj = {
         img: "/assets/cookie.jpg",
         options: [{
             text:"Utiliser la machine",
-            action:"goToChapter(teleporter) "
+            action:"goToChapter('teleporter') "
         }, { //Bon choix
             text:"Prendre le laser",
-            action:"goToChapter(un_etre_apparait)"
+            action:"goToChapter('un_etre_apparait')"
         }]
       },
       laser: {
@@ -87,10 +85,10 @@ let chaptersObj = {
         img: "/assets/gun_dead.jpg",
         options: [{
             text:"Utiliser la machine",
-            action:"goToChapter(mort) "
+            action:"goToChapter('mort') "
         }, { 
             text:"Prendre le laser",
-            action:"goToChapter(un_etre_apparait)"
+            action:"goToChapter('un_etre_apparait')"
         }]
       },
 
@@ -102,13 +100,13 @@ let chaptersObj = {
         img:"/assets/woman.jpg ",
         options: [{
             text:"Tuer la femme",
-            action:"goToChapter(tuer_femme)",
+            action:"goToChapter('tuer_femme')",
         },{
             text:"Attendre un peu ",
-            action:"goToChapter(mort) "
+            action:"goToChapter('mort') "
         },{
             text:"Lui parler ",
-            action:"goToChapter(la_grande_decision) "
+            action:"goToChapter('la_grande_decision') "
         }],
     },
 
@@ -118,7 +116,7 @@ let chaptersObj = {
         img:"/assets/grilled_hair.jpg ",
         options: [{
             text:"Réessayer",
-            action:"goToChapter(la_prison)",
+            action:"goToChapter('la_prison')",
         },],
     },
 
@@ -128,7 +126,7 @@ let chaptersObj = {
         img:"/assets/bully.png ",
         options: [{
             text:"reccomencer",
-            action:"goToChapter(la_prison)",
+            action:"goToChapter('la_prison')",
         },],
     },
 
@@ -138,7 +136,7 @@ let chaptersObj = {
         img:"/assets/happy_friends.jpg ",
         options: [{
             text:"Se decider",
-            action:"goToChapter(la_grande_decision)",
+            action:"goToChapter('la_grande_decision')",
         },],
     },
 
@@ -151,11 +149,11 @@ let chaptersObj = {
         img:"/assets/boutton.jpg ",
         options: [{
             text:"Appuyer",
-            action:"goToChapter(win) "
+            action:"goToChapter('win') "
         },{
             text:"ne pas appuyer ",
-            action:"goToChapter(mort) "
-        }],
+            action:"goToChapter('mort') "
+        }]
     },
 
     la_grande_decision2: {
@@ -164,8 +162,8 @@ let chaptersObj = {
         img:"/assets/boutton.jpg ",
         options: [{
             text:"Réessayer ",
-            action:"goToChapter(la_prison) "
-        }],
+            action:"goToChapter('la_prison') "
+        }]
     },
 
 
@@ -175,7 +173,7 @@ let chaptersObj = {
         img:"/assets/lose.png",
         options: [{
             text:"Réessayer",
-            action: 'goToChapter(la_prison)'
+            action: "goToChapter('la_prison')"
         }]
     },
 
@@ -187,25 +185,34 @@ let chaptersObj = {
         img:"/assets/bravo.jpg",
         options: [{
             text:"Rejouer",
-            action:"goToChapter(la_prison)"
+            action:"goToChapter('la_prison')"
         },]
     }
 }
 
 function goToChapter(chapterName){
     let chapter = chaptersObj[chapterName];
-    console.log(chapter.subtitle);
-    console.log(chapter.text);
-    console.log(chapter.img);
+    // console.log(chapter.subtitle);
+    // console.log(chapter.text);
+    // console.log(chapter.img);
 
     document.querySelector("#sub_title").innerHTML = chapter.subtitle;
     document.querySelector("#text_id").innerHTML = chapter.text;
     document.querySelector("#image").src = chapter.img;
 
-        // for {
-        //     document.querySelector("#action1").onclick= .chapter;
-        //     document.querySelector("#action2").onclick="showMsg();
-        //     document.querySelector("#action3").onclick="showMsg();      
-        // }
+    let options = "";
+    let optArr = chapter.options;
+    for (let index = 0; index < optArr.length; index++){
+        const opt = optArr[index];
+        options += `<button onclick="${opt.action}">${opt.text}</button>`;
+        console.log(options);
+    }
 
-}
+    let optDecl = document.querySelector('.menu');
+    optDecl.innerHTML = options;
+       
+};
+
+
+//FAire que ça marche de base
+goToChapter('la_prison');
