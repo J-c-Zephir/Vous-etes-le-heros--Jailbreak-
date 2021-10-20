@@ -55,26 +55,29 @@ p{
 }
 
 #text_id {
-  margin: 30px 30px 50px 50px;
-
+  margin: 30px 30px 30px 30px;
+  padding: 50px;
 }
 
 button{
   width: 100px;
   background-color: #ed701d;
   color: black;
-  padding: 14px 20px;
-  margin: 8px 0 20px;
+  padding: 20px 20px;
+  margin: 10px 0 10px;
   justify-content: space-evenly;
   border: none;
-  border-radius: 0px;
+  border-radius: 2px;
   cursor: pointer;
   font-size: 20px;
   font-family: "VT323", monospace;
+  transition: background-color ease;
+  transition-duration:0.5s;
 }
 
 button:hover {
   background-color: #96031a;
+  border: #fbfffe;
 }
 
 /*INPUT TYPE button*/
@@ -95,3 +98,5 @@ button:hover {
 input[type="button"]:hover {
   background-color: #96031a;
 } */
+
+

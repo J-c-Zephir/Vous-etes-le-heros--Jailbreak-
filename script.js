@@ -1,11 +1,30 @@
 //*FONCER DANS LE GARDE DE SÉCURITER POUR T'ENFUIR [YOU DIE]
 
+//Déclaration de variables du début du jeu et de la fonction biscuit.
+let biscuitMange = false;
+
+function biscuit(){
+    biscuitMange == true;
+    goToChapter('biscuit');
+    console.log(biscuitMange.value)
+};
+
+function parallele(){
+    if (biscuitMange == true) {
+        goToChapter('un_etre_apparait');
+    }
+    else {
+        goToChapter('un_etre_apparait2');
+    }
+};
+
+
     //CHAPITRE 1
 
 let chaptersObj = {
     la_prison: {
         subtitle: "La cellule",
-        text: "Ayant été condamné pour avoir commis un crime violent contre l'humanité, vous vous retrouvez en prison. Le cervaux de l'opération est en liberté et tu pourris en prison, tu ne veux pas finir tes jours en prison. Tout d'un coup, tu recois vent d'un plan de s'échapper de prison par les prisonniers. Aujourd'hui est le grand jour est tu prêt? Sachant que vous être innocent, votre but est de vous enfuir de prison pour prouver votre innoncence. Bonne Chance",
+        text: "Ayant été condamné pour avoir commis un crime violent contre l'humanité, vous vous retrouvez en prison. Le cervaux de l'opération est en liberté et tu pourris en prison, tu ne veux pas finir tes jours en prison. Tout d'un coup, tu recois vent d'un plan de s'échapper de prison par les prisonniers. Aujourd'hui est le grand jour est tu prêt? Sachant que vous être innocent, votre but est de vous enfuir de prison pour prouver votre innoncence. Bonne Chance.",
         img: "/assets/prison.jpg",
         options: [{
             text:"Aller vous coucher ",
@@ -20,11 +39,11 @@ let chaptersObj = {
 
     confontation: {
         subtitle: "La confrontation",
-        text: "Un garde apparait et fait les rondes dans les alentours. Vous apercevez des licornes pour une raison curieuse.",
+        text: "Un garde apparait et fait les rondes proche de votre cellulle et pour une curieuse raison, vous apercevez des... licornes?? Ce pourrait être une de vos seule chances de vous enfuir. Que faire?",
         img: "/assets/confrontation.jpg",
         options: [{
             text:"Provoquer garde", 
-            action:'goToChapter("mort")'},
+            action:"goToChapter('mort')"},
             {
                 text: "Ne rien faire",
                 action:"goToChapter('choix_difficile')"
@@ -32,7 +51,7 @@ let chaptersObj = {
     },
     le_garde: {
         subtitle: "Le Garde te casse la yeuele",
-        text: "La souffrance est grande depuis que le garde vous fait des leçon de boxe sans retenir ses coups. Vous etes mort.",
+        text: "La souffrance est à son comble depuis que le garde a fait de vous son 'sandbag' tout en s'assurant de ne pas retenir ses coups. Vous êtes maintenant dans une prison sous haute surveillance. Vous avez échoué.",
         img: "/assets/boxed_up.jpg",
         options: [{
             text:"Rejouer ",
@@ -44,11 +63,11 @@ let chaptersObj = {
 
     choix_difficile: {
         subtitle:"choix difficile ",
-        text:"En arrivant vous apercevez un biscuit, radioactif vert, une manette qui semble curieuse, et un outil suspicieux qui ressemble drôlement a un fusil.",
+        text:"En arrivant sur la scène, vous apercevez un biscuit qui semble douteux, une manette qui semble curieuse, et un objet ressemblant a un fusil qui n'inspire pas la confiance. Qu'allez vous faire?",
         img:"/assets/pourison.jpg ",
         options: [{
-            text:"Manger_Biscuit",
-            action:"goToChapter('biscuit')"
+            text:"Manger un Biscuit",
+            action:"biscuit()"
         },{
             text:"Utiliser la machine",
             action:"goToChapter('mort')"
@@ -60,7 +79,7 @@ let chaptersObj = {
     },
     teleporter: {
         subtitle: "Dans un mur ouch",
-        text: "Une fin tragique, vous vous retrouvez dans un mur et incapable d'en sortir. ",
+        text: "Une fin tragique, vous vous retrouvez dans un mur et incapable d'en sortir. Vous êtes mort. ",
         img: "/assets/teleporter.jpg",
         options: [{
             text:"réesayer",
@@ -76,7 +95,7 @@ let chaptersObj = {
             action:"goToChapter('teleporter') "
         }, { //Bon choix
             text:"Prendre le laser",
-            action:"goToChapter('un_etre_apparait')"
+            action:"goToChapter('biscuit')"
         }]
       },
       laser: {
@@ -84,11 +103,8 @@ let chaptersObj = {
         text: "Vous entrez dans une pièce pleine de gardes et vous vous faites remplir de balles. Vous etes mort. ",
         img: "/assets/gun_dead.jpg",
         options: [{
-            text:"Utiliser la machine",
-            action:"goToChapter('mort') "
-        }, { 
-            text:"Prendre le laser",
-            action:"goToChapter('un_etre_apparait')"
+            text:"Réessayer",
+            action:"goToChapter('la_prison') "
         }]
       },
 
@@ -96,14 +112,14 @@ let chaptersObj = {
 
     un_etre_apparait: {
         subtitle:"Un être Apparaît ",
-        text:"Vous appercevez une jeune femme qui à l'air troublé. Vous vous demandez si vous devriez lui parler. ",
+        text:"Vous appercevez une jeune femme qui à l'air troublé. Vous vous demandez si vous devriez lui parler.",
         img:"/assets/woman.jpg ",
         options: [{
             text:"Tuer la femme",
             action:"goToChapter('tuer_femme')",
         },{
             text:"Attendre un peu ",
-            action:"goToChapter('mort') "
+            action:"goToChapter('attendre_femme') "
         },{
             text:"Lui parler ",
             action:"goToChapter('la_grande_decision') "
@@ -122,10 +138,10 @@ let chaptersObj = {
 
     attendre_femme: {
         subtitle:"Oh lala on est pressé la ",
-        text:"Une panooplie de gardes viennent vous embusquer et vous mourrez d'humiliation de vous être fait embusquer ",
+        text:"Mais à quoi tu pensais. Tu es recherché par une centaine de gardes dans une prison sous haute surveillance. Pas le temp dniaiser. Une panooplie de gardes viennent et se moquent de vous. Vous mourrez d'humiliation. ",
         img:"/assets/bully.png ",
         options: [{
-            text:"reccomencer",
+            text:"Réessayer",
             action:"goToChapter('la_prison')",
         },],
     },
@@ -140,6 +156,53 @@ let chaptersObj = {
         },],
     },
 
+      //CHAPITRE 4 (IF YOU HAVENT EATEN THE COOKIE)
+
+      un_etre_apparait2: {
+        subtitle:"Un être Apparaît ",
+        text:"Vous appercevez une jeune femme qui à l'air troublé. Vous vous demandez si vous devriez lui parler.",
+        img:"/assets/woman.jpg ",
+        options: [{
+            text:"Tuer la femme",
+            action:"goToChapter('tuer_femme2')", //CHANGER ÇA FAIRE MOURIR LE GARS
+        },{
+            text:"Attendre un peu ",
+            action:"goToChapter('attendre_femme2') "//CHANGER ÇA FAIRE MOURIR LE GARS
+        },{
+            text:"Faire un son d'oiseau ", 
+            action:"goToChapter('parler_femme2') "//CHANGER ÇA l'action la faire continuer dans l'histoire
+        }],
+    },
+
+    tuer_femme2: {
+        subtitle:"Un terrible accident survient ",
+        text:"Le fusil se refroidit de manière anormale et vous mourrez d'une engelure. Oh lala. Vous êtes mort ",
+        img:"/assets/frozen.jpg ",
+        options: [{
+            text:"Réessayer",
+            action:"goToChapter('la_prison')",
+        },],
+    },
+
+    attendre_femme2: {
+        subtitle:"Wesh on t'a SPOT ",
+        text:"La femme vous apercoit et vous tire avec son fusil laser. Vous êtes mort.",
+        img:"/assets/laser_woman.jpg ",
+        options: [{
+            text:"Réessayer",
+            action:"goToChapter('la_prison')",
+        },],
+    },
+
+    parler_femme2: {
+        subtitle:"Un duo surprenant ",
+        text:"Vous lui demander de travailler avec vous en cris d'oiseau et par surprise, elle comprend la langue et décide d'accepter! vous êtes maintenant deux pour essayer de s'enfuir. une decision vous attend ",
+        img:"/assets/happy_friends.jpg ",
+        options: [{
+            text:"Se decider",
+            action:"goToChapter('la_grande_decision3')",
+        },],
+    },
 
         //CHAPITRE 5
 
@@ -149,10 +212,10 @@ let chaptersObj = {
         img:"/assets/boutton.jpg ",
         options: [{
             text:"Appuyer",
-            action:"goToChapter('win') "
+            action:"goToChapter('win') "//CHANGER ÇA l'action
         },{
             text:"ne pas appuyer ",
-            action:"goToChapter('mort') "
+            action:"goToChapter('mort') "//CHANGER ÇA l'action
         }]
     },
 
@@ -167,6 +230,42 @@ let chaptersObj = {
     },
 
 
+        //CHAPITRE 5 (IF YOU HAVENT EATEN THE COOKIE)
+
+        la_grande_decision3: {
+            subtitle:"La grande decision ",
+            text:"Un bouton rouge apparait en face de vous. allez vous appuyer dessus?? ",
+            img:"/assets/boutton.jpg ",
+            options: [{
+                text:"Appuyer",
+                action:"goToChapter('la_grande_decision4') "
+            },{
+                text:"ne pas appuyer ",
+                action:"goToChapter('la_grande_decision5') "
+            }]
+        },
+    
+        la_grande_decision4: {
+            subtitle:"Le bouton n'est pas appuyé ",
+            text:"Vous essayez d'appuyer, mais le le couvre bouton ne veut pas se lever.. Vous vous faites tuer par des gardes. ",
+            img:"/assets/boutton.jpg ",
+            options: [{
+                text:"Réessayer ",
+                action:"goToChapter('la_prison') "
+            }]
+        },
+        
+        la_grande_decision5: {
+            subtitle:"Le bouton n'est pas appuyé ",
+            text:"Vous vous faites encercler et capturer par les gardes. GAME OVER ",
+            img:"/assets/boutton.jpg ",
+            options: [{
+                text:"Réessayer ",
+                action:"goToChapter('la_prison') "
+            }]
+        },
+
+    //Vie et mort
     mort: {
         subtitle:" Perdant",
         text:"Vous avez perdu",
@@ -190,6 +289,7 @@ let chaptersObj = {
     }
 }
 
+//Fonction pour se déplacer entre les chapitres
 function goToChapter(chapterName){
     let chapter = chaptersObj[chapterName];
     // console.log(chapter.subtitle);
@@ -214,5 +314,6 @@ function goToChapter(chapterName){
 };
 
 
-//FAire que ça marche de base
+
+//Faire que ça marche de base
 goToChapter('la_prison');
