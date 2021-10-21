@@ -4,9 +4,9 @@
 let biscuitMange = false;
 
 function biscuit(){
-    biscuitMange == true;
+    biscuitMange = true;
     goToChapter('biscuit');
-    console.log(biscuitMange.value)
+    // console.log(biscuitMange.value)
 };
 
 function parallele(){
@@ -70,7 +70,7 @@ let chaptersObj = {
             action:"biscuit()"
         },{
             text:"Utiliser la machine",
-            action:"goToChapter('mort')"
+            action:"goToChapter('un_etre_apparait2')"
         },
         {
             text:"Prendre le laser",
@@ -95,7 +95,7 @@ let chaptersObj = {
             action:"goToChapter('teleporter') "
         }, { //Bon choix
             text:"Prendre le laser",
-            action:"goToChapter('biscuit')"
+            action:"parallele()"
         }]
       },
       laser: {
@@ -222,7 +222,7 @@ let chaptersObj = {
     la_grande_decision2: {
         subtitle:"Le bouton n'est pas appuyé ",
         text:"Vous vous faites encercler et capturer par les gardes. GAME OVER ",
-        img:"/assets/boutton.jpg ",
+        img:"/assets/encercle.jpg ",
         options: [{
             text:"Réessayer ",
             action:"goToChapter('la_prison') "
@@ -312,6 +312,7 @@ function goToChapter(chapterName){
     optDecl.innerHTML = options;
        
 };
+
 
 
 
