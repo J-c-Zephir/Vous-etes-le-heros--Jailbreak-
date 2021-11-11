@@ -23,7 +23,8 @@ let chaptersObj = {
   la_prison: {
     subtitle: "La cellule",
     text: "Ayant été condamné pour avoir commis un crime violent contre l'humanité, vous vous retrouvez en prison. Le cervaux de l'opération est en liberté et tu pourris en prison, tu ne veux pas finir tes jours en prison. Tout d'un coup, tu recois vent d'un plan de s'échapper de prison par les prisonniers. Aujourd'hui est le grand jour est tu prêt? Sachant que vous être innocent, votre but est de vous enfuir de prison pour prouver votre innoncence. Bonne Chance.",
-    img: "assets/prison.jpg",
+    // img: "assets/prison.jpg",
+    video: "assets/prisonner.mp4 ",
     options: [
       {
         text: "Aller vous coucher ",
@@ -331,7 +332,8 @@ let chaptersObj = {
   gagner: {
     subtitle: " Vous avez Gagné !",
     text: "Le système de sécurité s'est désactivé et vous réuissez de vous enfuir et de regagner vos droits. Vous avez gagné bravo ",
-    img: "/assets/bravo.jpg",
+    // img: "/assets/bravo.jpg",
+    video: "assets/final_winner.mp4 ",
     options: [
       {
         text: "Rejouer",
@@ -352,6 +354,7 @@ function goToChapter(chapterName) {
   document.querySelector("#text_id").innerHTML = chapter.text;
   document.querySelector("#image").src = chapter.img;
 
+
   let options = "";
   let optArr = chapter.options;
   for (let index = 0; index < optArr.length; index++) {
@@ -362,7 +365,39 @@ function goToChapter(chapterName) {
 
   let optDecl = document.querySelector(".menu");
   optDecl.innerHTML = options;
+
+
+  
+//Section Video
+const imag = document.querySelector('#image')
+  const video = document.querySelector(".video")
+
+  if(chapter.video != undefined){
+    // imag.play();
+    options = `<video id="video" src="${chapter.video}" style="max-width: 50%" ; style="max-width: 50%;" autoplay muted loop>`;
+    video.innerHTML = options
+  }
+
+  if(chapter.video = undefined){
+    options = `<img id="image" src="${chapter.images}" style="max-width: 50%" ; style="max-width: 50%;">`;
+    video.innerHTML = options
+  }
+
 }
 
 //Faire que ça marche de base
 goToChapter("la_prison");
+
+
+//Section audio
+let optDecl = document.querySelector(".menu");
+
+optDecl.addEventListener('click', function() {
+  const body = document.querySelector('body');
+  let optDecl = document.querySelector(".menu");
+  const audio = new Audio('assets/vine_boom.mp3');
+
+  body.classList.add('.play');
+  audio.play();
+
+});

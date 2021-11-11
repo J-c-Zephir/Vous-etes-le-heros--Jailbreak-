@@ -80,6 +80,12 @@ button:hover {
   border: #fbfffe;
 }
 
+.video{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*INPUT TYPE button*/
 
 /* input[type="button"] {
