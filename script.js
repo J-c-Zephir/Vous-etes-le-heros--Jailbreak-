@@ -1,5 +1,3 @@
-//*FONCER DANS LE GARDE DE SÉCURITER POUR T'ENFUIR [YOU DIE]
-
 //Déclaration de variables du début du jeu et de la fonction biscuit.
 let biscuitMange = false;
 
@@ -251,7 +249,8 @@ let chaptersObj = {
     options: [
       {
         text: "Appuyer",
-        action: "goToChapter('win') ", //CHANGER ÇA l'action
+        action: "goToChapter('gagner')", //CHANGER ÇA l'action
+        
       },
       {
         text: "ne pas appuyer ",
@@ -343,6 +342,8 @@ let chaptersObj = {
   },
 };
 
+
+
 //Fonction pour se déplacer entre les chapitres
 function goToChapter(chapterName) {
   let chapter = chaptersObj[chapterName];
@@ -352,7 +353,7 @@ function goToChapter(chapterName) {
 
   document.querySelector("#sub_title").innerHTML = chapter.subtitle;
   document.querySelector("#text_id").innerHTML = chapter.text;
-  document.querySelector("#image").src = chapter.img;
+  // document.querySelector("#image").src = chapter.img;
 
 
   let options = "";
@@ -367,25 +368,40 @@ function goToChapter(chapterName) {
   optDecl.innerHTML = options;
 
 
-  
 //Section Video
-const imag = document.querySelector('#image')
+  const imag = document.querySelector('#image')
   const video = document.querySelector(".video")
 
   if(chapter.video != undefined){
     // imag.play();
-    options = `<video id="video" src="${chapter.video}" style="max-width: 50%" ; style="max-width: 50%;" autoplay muted loop>`;
+    options = `<video id="video" src="${chapter.video}" style="max-width: 50%" ; style="max-width: 50%;" autoplay muted loop> </video>`;
     video.innerHTML = options
   }
 
-  if(chapter.video = undefined){
-    options = `<img id="image" src="${chapter.images}" style="max-width: 50%" ; style="max-width: 50%;">`;
+  else if(chapter.video == undefined){
+    options = `<img id="image" src="${chapter.img}" style="max-width: 50%" ; style="max-width: 50%;">`;
     video.innerHTML = options
   }
+
+//Sauvegarde Local storage
+// document.addEventListener("DOMContentLoaded", function(){
+
+//   localStorage.setItem('chapter', optArr);
+
+//   // console.log(localStorage.getItem('chapter') == null)
+//   if(localStorage.getItem('chapter') != null){
+//     goToChapter(`${localStorage.getItem('chapter')}`)
+//   }
+//   else if(localStorage.getItem('chapter') == null){
+//     goToChapter('la_prison')
+//   }
+
+
+// })
 
 }
 
-//Faire que ça marche de base
+//Faire que ça aille au chapitre 1
 goToChapter("la_prison");
 
 
@@ -395,9 +411,13 @@ let optDecl = document.querySelector(".menu");
 optDecl.addEventListener('click', function() {
   const body = document.querySelector('body');
   let optDecl = document.querySelector(".menu");
-  const audio = new Audio('assets/vine_boom.mp3');
 
   body.classList.add('.play');
+
+  const audio = new Audio('assets/vine_boom.mp3');
+  audio.currentTime = 0;
   audio.play();
 
-});
+
+  }
+);
