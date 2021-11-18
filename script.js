@@ -147,7 +147,7 @@ let chaptersObj = {
   },
 
   tuer_femme: {
-    subtitle: "Un accident infortuné ",
+    subtitle: "Un accident d'une tristesse immesurable ",
     text: "Le fusil surchauffe et vous explosez. oups. Vous êtes mort ",
     img: "/assets/grilled_hair.jpg ",
     options: [
@@ -290,9 +290,9 @@ let chaptersObj = {
   },
 
   la_grande_decision4: {
-    subtitle: "Le bouton n'est pas appuyé ",
-    text: "Vous essayez d'appuyer, mais le le couvre bouton ne veut pas se lever.. Vous vous faites tuer par des gardes. ",
-    img: "/assets/boutton.jpg ",
+    subtitle: "Le bouton est appuyé, mais... ",
+    text: "Vous essayez d'appuyer, mais il a été désactivé par la licorne du garde qui a entendus vos cris d'oiseau.. Faut dire que vous n'avez jamais été doué dans le domaine de l'audio 😬. Vous vous attraper par des gardes et torturé. La dernière chose que vous entendez à votre mort est l'intro de cocomelon. ",
+    video: "assets/panic_button.mp4 ",
     options: [
       {
         text: "Réessayer ",
@@ -395,8 +395,6 @@ function goToChapter(chapterName) {
 //   else if(localStorage.getItem('chapter') == null){
 //     goToChapter('la_prison')
 //   }
-
-
 // })
 
 }
@@ -407,6 +405,10 @@ goToChapter("la_prison");
 
 //Section audio
 let optDecl = document.querySelector(".menu");
+  const audio = new Audio('assets/vine_boom.mp3');
+
+audio.play()
+audio.volume = 0
 
 optDecl.addEventListener('click', function() {
   const body = document.querySelector('body');
@@ -414,10 +416,11 @@ optDecl.addEventListener('click', function() {
 
   body.classList.add('.play');
 
-  const audio = new Audio('assets/vine_boom.mp3');
+  
+if (audio.currentTime != 0){
+  audio.volume = 1
   audio.currentTime = 0;
-  audio.play();
 
-
-  }
+}
+}
 );
