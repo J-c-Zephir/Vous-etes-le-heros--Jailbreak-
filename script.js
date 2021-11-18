@@ -4,6 +4,8 @@ let biscuitMange = false;
 function biscuit() {
   biscuitMange = true;
   goToChapter("biscuit");
+  localStorage.setItem('biscuitMange', biscuitMange);
+
   // console.log(biscuitMange.value)
 }
 
@@ -346,6 +348,7 @@ let chaptersObj = {
 
 //Fonction pour se déplacer entre les chapitres
 function goToChapter(chapterName) {
+  
   let chapter = chaptersObj[chapterName];
   // console.log(chapter.subtitle);
   // console.log(chapter.text);
@@ -382,28 +385,12 @@ function goToChapter(chapterName) {
     options = `<img id="image" src="${chapter.img}" style="max-width: 50%" ; style="max-width: 50%;">`;
     video.innerHTML = options
   }
-
-//Sauvegarde Local storage
-// document.addEventListener("DOMContentLoaded", function(){
-
-//   localStorage.setItem('chapter', optArr);
-
-//   // console.log(localStorage.getItem('chapter') == null)
-//   if(localStorage.getItem('chapter') != null){
-//     goToChapter(`${localStorage.getItem('chapter')}`)
-//   }
-//   else if(localStorage.getItem('chapter') == null){
-//     goToChapter('la_prison')
-//   }
-// })
+  localStorage.setItem('chapter', chapterName);
+  console.log(localStorage.getItem('chapter'))
 
 }
 
-//Faire que ça aille au chapitre 1
-goToChapter("la_prison");
-
-
-//Section audio
+//_________________________________________________________Section audio_______________________________________________________________________
 let optDecl = document.querySelector(".menu");
   const audio = new Audio('assets/vine_boom.mp3');
 
@@ -424,3 +411,41 @@ if (audio.currentTime != 0){
 }
 }
 );
+//---------------------------------------------------------------- Section audio ----------------------------------------------------------------
+
+
+// ---------------------------------------------------------- Sauvegarde Local storage ----------------------------------------------------------
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  // localStorage.clear()
+
+  if(localStorage.getItem('chapter') != null){
+    goToChapter(`${localStorage.getItem('chapter')}`)
+  }  
+
+  else if(localStorage.getItem('chapter') == null){
+    goToChapter('la_prison')
+  }
+
+
+//KEY CONDITIONS FOR COOKIE
+  if(localStorage.getItem('biscuitMange') != null) {
+    biscuitMange = true;
+  }
+
+else {
+  biscuitMange = false;
+
+}
+
+})
+
+// ---------------------------------------------------- Sauvegarde Local storage ---------------------------------------------------------------
+
+
+//Faire que ça aille au chapitre 1
+// goToChapter("la_prison");
+
+
+
