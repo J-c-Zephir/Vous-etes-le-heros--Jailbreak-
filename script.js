@@ -371,7 +371,6 @@ function goToChapter(chapterName) {
   let optDecl = document.querySelector(".menu");
   optDecl.innerHTML = options;
 
-
   //Section Video
   const video = document.querySelector(".video")
 
@@ -386,6 +385,13 @@ function goToChapter(chapterName) {
   localStorage.setItem('chapter', chapterName);
   console.log(localStorage.getItem('chapter'))
 }
+
+const btnReset = document.querySelector('#reset');
+btnReset.addEventListener('click', function(){
+localStorage.clear();
+goToChapter('la_prison')
+});
+
 
 // ---------------------------------------------------------- Sauvegarde Local storage ----------------------------------------------------------
 
@@ -404,3 +410,14 @@ if(localStorage.getItem('biscuitMange') != null) {
 
 // ---------------------------------------------------- Sauvegarde Local storage ---------------------------------------------------------------
 
+let muteBtn = document.getElementById('mute');
+let isChecked = document.getElementById("mute").checked
+
+console.log(isChecked)
+isChecked.addEventListener('change', function(){
+  if(isChecked === true){
+    audio.volume = 0;
+  } //else{
+    // audio.volume = 1;
+  
+});
