@@ -71,7 +71,7 @@ let chaptersObj = {
   choix_difficile: {
     subtitle: "choix difficile ",
     text: "En arrivant sur la scène, vous apercevez un biscuit qui semble douteux, une manette qui semble curieuse, et un objet ressemblant a un fusil qui n'inspire pas la confiance. Qu'allez vous faire?",
-    img: "/assets/pourison.jpg ",
+    img: "assets/pourison.jpg ",
     options: [
       {
         text: "Manger un Biscuit",
@@ -131,7 +131,7 @@ let chaptersObj = {
   un_etre_apparait: {
     subtitle: "Un être Apparaît ",
     text: "Vous appercevez une jeune femme qui à l'air troublé. Vous vous demandez si vous devriez lui parler.",
-    img: "/assets/woman.jpg ",
+    img: "./assets/woman.jpg ",
     options: [
       {
         text: "Tuer la femme",
@@ -151,7 +151,7 @@ let chaptersObj = {
   tuer_femme: {
     subtitle: "Un accident d'une tristesse immesurable ",
     text: "Le fusil surchauffe et vous explosez. oups. Vous êtes mort ",
-    img: "/assets/grilled_hair.jpg ",
+    img: "./assets/grilled_hair.jpg ",
     options: [
       {
         text: "Réessayer",
@@ -163,7 +163,7 @@ let chaptersObj = {
   attendre_femme: {
     subtitle: "Oh lala on est pressé la ",
     text: "Mais à quoi tu pensais. Tu es recherché par une centaine de gardes dans une prison sous haute surveillance. Pas le temp dniaiser. Une panooplie de gardes viennent et se moquent de vous. Vous mourrez d'humiliation. ",
-    img: "/assets/bully.png ",
+    img: "./assets/bully.png ",
     options: [
       {
         text: "Réessayer",
@@ -175,7 +175,7 @@ let chaptersObj = {
   parler_femme: {
     subtitle: "Un duo surprenant ",
     text: "Vous lui demander de travailler avec vous et elle accepte! vous êtes maintenant deux pour essayer de s'enfuir. une decision vous attend ",
-    img: "/assets/happy_friends.jpg ",
+    img: "./assets/happy_friends.jpg ",
     options: [
       {
         text: "Se decider",
@@ -189,7 +189,7 @@ let chaptersObj = {
   un_etre_apparait2: {
     subtitle: "Un être Apparaît ",
     text: "Vous appercevez une jeune femme qui à l'air troublé. Vous vous demandez si vous devriez lui parler.",
-    img: "/assets/woman.jpg ",
+    img: "./assets/woman.jpg ",
     options: [
       {
         text: "Tuer la femme",
@@ -209,7 +209,7 @@ let chaptersObj = {
   tuer_femme2: {
     subtitle: "Un terrible accident survient ",
     text: "Le fusil se refroidit de manière anormale et vous mourrez d'une engelure. Oh lala. Vous êtes mort ",
-    img: "/assets/frozen.jpg ",
+    img: "./assets/frozen.jpg ",
     options: [
       {
         text: "Réessayer",
@@ -221,7 +221,7 @@ let chaptersObj = {
   attendre_femme2: {
     subtitle: "Wesh on t'a SPOT ",
     text: "La femme vous apercoit et vous tire avec son fusil laser. Vous êtes mort.",
-    img: "/assets/laser_woman.jpg ",
+    img: "./assets/laser_woman.jpg ",
     options: [
       {
         text: "Réessayer",
@@ -233,7 +233,7 @@ let chaptersObj = {
   parler_femme2: {
     subtitle: "Un duo surprenant ",
     text: "Vous lui demander de travailler avec vous en cris d'oiseau et par surprise, elle comprend la langue et décide d'accepter! vous êtes maintenant deux pour essayer de s'enfuir. une decision vous attend ",
-    img: "/assets/happy_friends.jpg ",
+    img: "./assets/happy_friends.jpg ",
     options: [
       {
         text: "Se decider",
@@ -247,7 +247,7 @@ let chaptersObj = {
   la_grande_decision: {
     subtitle: "La grande decision ",
     text: "Un bouton rouge apparait en face de vous allez vous appuyer dessus oui ou non? ",
-    img: "/assets/boutton.jpg ",
+    img: "./assets/boutton.jpg ",
     options: [
       {
         text: "Appuyer",
@@ -264,7 +264,7 @@ let chaptersObj = {
   la_grande_decision2: {
     subtitle: "Le bouton n'est pas appuyé ",
     text: "Vous vous faites encercler et capturer par les gardes. GAME OVER ",
-    img: "/assets/encercle.jpg ",
+    img: "./assets/encercle.jpg ",
     options: [
       {
         text: "Réessayer ",
@@ -278,7 +278,7 @@ let chaptersObj = {
   la_grande_decision3: {
     subtitle: "La grande decision ",
     text: "Un bouton rouge apparait en face de vous. allez vous appuyer dessus?? ",
-    img: "/assets/boutton.jpg ",
+    img: "./assets/boutton.jpg ",
     options: [
       {
         text: "Appuyer",
@@ -306,7 +306,7 @@ let chaptersObj = {
   la_grande_decision5: {
     subtitle: "Le bouton n'est pas appuyé ",
     text: "Vous vous faites encercler et capturer par les gardes. GAME OVER ",
-    img: "/assets/boutton.jpg ",
+    img: "./assets/boutton.jpg ",
     options: [
       {
         text: "Réessayer ",
@@ -319,7 +319,7 @@ let chaptersObj = {
   mort: {
     subtitle: " Perdant",
     text: "Vous avez perdu",
-    img: "/assets/lose.png",
+    img: "./assets/lose.png",
     options: [
       {
         text: "Réessayer",
@@ -333,7 +333,7 @@ let chaptersObj = {
   gagner: {
     subtitle: " Vous avez Gagné !",
     text: "Le système de sécurité s'est désactivé et vous réuissez de vous enfuir et de regagner vos droits. Vous avez gagné bravo ",
-    // img: "/assets/bravo.jpg",
+    // img: "./assets/bravo.jpg",
     video: "assets/final_winner.mp4 ",
     options: [
       {
@@ -344,10 +344,13 @@ let chaptersObj = {
   },
 };
 
-
+const audio = new Audio('assets/vine_boom.mp3');
 
 //Fonction pour se déplacer entre les chapitres
 function goToChapter(chapterName) {
+  /* audio */
+  audio.currentTime = 0;
+  audio.play()
   
   let chapter = chaptersObj[chapterName];
   // console.log(chapter.subtitle);
@@ -356,7 +359,6 @@ function goToChapter(chapterName) {
 
   document.querySelector("#sub_title").innerHTML = chapter.subtitle;
   document.querySelector("#text_id").innerHTML = chapter.text;
-  // document.querySelector("#image").src = chapter.img;
 
 
   let options = "";
@@ -364,88 +366,58 @@ function goToChapter(chapterName) {
   for (let index = 0; index < optArr.length; index++) {
     const opt = optArr[index];
     options += `<button onclick="${opt.action}">${opt.text}</button>`;
-    console.log(options);
   }
 
   let optDecl = document.querySelector(".menu");
   optDecl.innerHTML = options;
 
-
-//Section Video
-  const imag = document.querySelector('#image')
+  //Section Video
   const video = document.querySelector(".video")
 
   if(chapter.video != undefined){
-    // imag.play();
-    options = `<video id="video" src="${chapter.video}" style="max-width: 50%" ; style="max-width: 50%;" autoplay muted loop> </video>`;
+    options = `<video id="video" src="${chapter.video}" style="max-width: 50%" autoplay muted loop>`;
+    video.innerHTML = options
+  } else {
+    options = `<img id="image" src="${chapter.img}" style="max-width: 50%;">`;
     video.innerHTML = options
   }
 
-  else if(chapter.video == undefined){
-    options = `<img id="image" src="${chapter.img}" style="max-width: 50%" ; style="max-width: 50%;">`;
-    video.innerHTML = options
-  }
   localStorage.setItem('chapter', chapterName);
   console.log(localStorage.getItem('chapter'))
-
 }
 
-//_________________________________________________________Section audio_______________________________________________________________________
-let optDecl = document.querySelector(".menu");
-  const audio = new Audio('assets/vine_boom.mp3');
-
-audio.play()
-audio.volume = 0
-
-optDecl.addEventListener('click', function() {
-  const body = document.querySelector('body');
-  let optDecl = document.querySelector(".menu");
-
-  body.classList.add('.play');
-
-  
-if (audio.currentTime != 0){
-  audio.volume = 1
-  audio.currentTime = 0;
-
-}
-}
-);
-//---------------------------------------------------------------- Section audio ----------------------------------------------------------------
+const btnReset = document.querySelector('#reset');
+btnReset.addEventListener('click', function(){
+localStorage.clear();
+goToChapter('la_prison')
+});
 
 
 // ---------------------------------------------------------- Sauvegarde Local storage ----------------------------------------------------------
 
-
-document.addEventListener("DOMContentLoaded", function(){
-  // localStorage.clear()
-
-  if(localStorage.getItem('chapter') != null){
-    goToChapter(`${localStorage.getItem('chapter')}`)
-  }  
-
-  else if(localStorage.getItem('chapter') == null){
-    goToChapter('la_prison')
-  }
-
-
-//KEY CONDITIONS FOR COOKIE
-  if(localStorage.getItem('biscuitMange') != null) {
-    biscuitMange = true;
-  }
-
-else {
-  biscuitMange = false;
-
+if(localStorage.getItem('chapter') != null) {
+  goToChapter(localStorage.getItem('chapter'));
+} else {
+  goToChapter('la_prison');
 }
 
-})
+//KEY CONDITIONS FOR COOKIE
+if(localStorage.getItem('biscuitMange') != null) {
+  biscuitMange = true;
+} else {
+  biscuitMange = false;
+}
 
 // ---------------------------------------------------- Sauvegarde Local storage ---------------------------------------------------------------
 
+let muteBtn = document.getElementById('mute');
+let isChecked = document.getElementById("mute").checked
 
-//Faire que ça aille au chapitre 1
-// goToChapter("la_prison");
-
-
-
+console.log(isChecked)
+isChecked.addEventListener('change', function(){
+  if(isChecked === true){
+    audio.volume = 0;
+  } //else{
+    // audio.volume = 1;
+  
+});
