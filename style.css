@@ -20,6 +20,7 @@ h1 {
   font-family: "VT323", monospace;
   font-size: 40px;
   margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 #sub_title{
@@ -28,7 +29,6 @@ h1 {
 
 p{
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 /*Carré Jailbreak*/
@@ -40,7 +40,7 @@ p{
   justify-content: space-evenly;
   align-items: center;
   width: 800px;
-  height: auto;
+  height: 100vh;
   background-color: #303036;
   border: solid 2px #fbfffe;
   border-radius: 10px;
@@ -50,13 +50,20 @@ p{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
-  margin-bottom: 50px;
+  width: 80%;
+  margin-bottom: 10px;
 }
 
-#text_id {
-  margin: 30px 30px 30px 30px;
-  padding: 50px;
+#text_id {  
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 30px;
+}
+
+label{
+  right: 0px;
 }
 
 button{
@@ -80,6 +87,34 @@ button:hover {
   border: #fbfffe;
 }
 
+#reset{
+  width: 100px;
+  height:75px;
+  background-color: #ed2b1d;
+  color: black;
+  right: 0px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "VT323", monospace;
+  text-align: start;
+  transition: background-color ease;
+  transition-duration:0.5s;
+  margin-bottom: 50px;
+}
+
+#reset:hover {
+  background-color: #96031a;
+}
+/* 
+input[type="checkbox"]{
+display: flex;
+flex-direction: row;
+justify-content: top;
+position: absolute;
+right: 50%;
+} */
+
+
 .video{
   display: flex;
   align-items: center;
@@ -88,7 +123,7 @@ button:hover {
 
 /*INPUT TYPE button*/
 
-/* input[type="button"] {
+/* input[type="checkbox"] {
   width: 100%;
   background-color: #ed701d;
   color: black;
@@ -101,8 +136,59 @@ button:hover {
   font-family: "VT323", monospace;
 }
 
-input[type="button"]:hover {
+input[type="checkbox"]:checked {
   background-color: #96031a;
 } */
 
 
+.le_garde{
+background-color: #96031a;
+}
+
+.mort{
+  background-color: #96031a;
+  }
+
+.laser{
+  background-color: #96031a;
+}
+
+.tuer_femme2{
+  background-color: #96031a;
+}
+
+.la_grande_decision4{
+  background-color: #96031a;
+}
+
+.teleporter{
+  background-color: #96031a;
+}
+
+.la_grande_decision5{
+  background-color: #96031a;
+}
+
+.attendre_femme{
+  background-color: #96031a;
+}
+
+.tuer_femme{
+  background-color: #96031a;
+}
+
+.attendre_femme2{
+  background-color: #96031a;
+}
+
+.parler_femme2{
+  background-color: #036796;
+}
+
+.la_grande_decision3{
+  background-color: #f1f504;
+}
+
+.gagner{
+  background-color: #039623;
+}

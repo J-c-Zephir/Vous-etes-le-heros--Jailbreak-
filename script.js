@@ -1,3 +1,5 @@
+//Consignes : https://smnarnold.com/projets/vous-etes-le-heros
+
 //Déclaration de variables du début du jeu et de la fonction biscuit.
 let biscuitMange = false;
 
@@ -46,7 +48,7 @@ let chaptersObj = {
     options: [
       {
         text: "Provoquer garde",
-        action: "goToChapter('mort')",
+        action: "goToChapter('le_garde')",
       },
       {
         text: "Ne rien faire",
@@ -347,7 +349,11 @@ let chaptersObj = {
 const audio = new Audio('assets/vine_boom.mp3');
 
 //Fonction pour se déplacer entre les chapitres
+
 function goToChapter(chapterName) {
+  const body = document.querySelector('body');
+  body.className = chapterName
+  
   /* audio */
   audio.currentTime = 0;
   audio.play()
@@ -384,6 +390,23 @@ function goToChapter(chapterName) {
 
   localStorage.setItem('chapter', chapterName);
   console.log(localStorage.getItem('chapter'))
+
+
+  let muteBtn = document.getElementById('mute');
+
+muteBtn.addEventListener('change', function() {
+if(muteBtn.checked == true){
+  audio.play()
+  audio.volume = 1;
+   }
+else {
+  audio.pause();
+  audio.volume = 0;
+}
+})
+
+
+
 }
 
 const btnReset = document.querySelector('#reset');
@@ -393,7 +416,7 @@ goToChapter('la_prison')
 });
 
 
-// ---------------------------------------------------------- Sauvegarde Local storage ----------------------------------------------------------
+// --------------------------------------------- Sauvegarde Local storage ----------------------------------------------------------
 
 if(localStorage.getItem('chapter') != null) {
   goToChapter(localStorage.getItem('chapter'));
@@ -408,16 +431,15 @@ if(localStorage.getItem('biscuitMange') != null) {
   biscuitMange = false;
 }
 
-// ---------------------------------------------------- Sauvegarde Local storage ---------------------------------------------------------------
+// ---------------------------------------------- Sauvegarde Local storage ---------------------------------------------------------------
 
-let muteBtn = document.getElementById('mute');
-let isChecked = document.getElementById("mute").checked
 
-console.log(isChecked)
+
+/*console.log(isChecked)
 isChecked.addEventListener('change', function(){
   if(isChecked === true){
     audio.volume = 0;
   } //else{
     // audio.volume = 1;
-  
 });
+*/
